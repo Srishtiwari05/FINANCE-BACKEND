@@ -1,3 +1,12 @@
+---
+title: Finance Backend API
+emoji: 🚀
+colorFrom: blue
+colorTo: green
+sdk: docker
+app_port: 7860
+pinned: false
+---
 # Finance Backend API
 
 A production-quality REST API for a finance dashboard system with role-based access control (RBAC), financial records management, and analytics.
