@@ -1,27 +1,24 @@
 # Use the official Node.js 20 Alpine image as a base
 FROM node:20-alpine
 
-# Hugging Face runs Docker spaces using user ID 1000. 
-# It's a best practice to create a non-root user matching this ID.
-RUN adduser -D -u 1000 user
+# The 'node' image already comes with a user named 'node' (UID 1000).
+# Hugging Face runs Docker spaces using user ID 1000.
 
 # Set the working directory
 WORKDIR /app
 
-# Change ownership of the working directory to the 'user'
-RUN chown -R user:user /app
+# Change ownership of the working directory to the 'node' user
+RUN chown -R node:node /app
 
-# Switch to the 'user'
-USER user
+# Switch to the 'node' user
+USER node
 
 # Copy package configurations and install dependencies
-# We use root for the copy to keep things simple, but because 
-# the user owns /app, they can run npm properly.
-COPY --chown=user:user package*.json ./
+COPY --chown=node:node package*.json ./
 RUN npm ci
 
 # Copy the rest of the source code
-COPY --chown=user:user . .
+COPY --chown=node:node . .
 
 # Build the TypeScript project into JavaScript
 RUN npm run build
