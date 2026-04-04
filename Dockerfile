@@ -15,7 +15,7 @@ USER node
 
 # Copy package configurations and install dependencies
 COPY --chown=node:node package*.json ./
-RUN npm ci
+RUN npm install
 
 # Copy the rest of the source code
 COPY --chown=node:node . .
