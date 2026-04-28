@@ -77,7 +77,7 @@ npm run dev
 
 Server: `http://localhost:3000`
 API Docs (Swagger): `http://localhost:3000/api/docs`
-
+Live/Deployed: https://saturn01-finance-backend-api.hf.space/api/docs/
 ---
 
 ## Role Permission Matrix
